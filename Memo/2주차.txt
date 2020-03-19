@@ -1,0 +1,28 @@
+<script>
+        // 스크립트는 자바스크립트를 쓰는 곳
+        function hey() //함수
+        {
+            alert('안녕!')
+        }
+</script>
+
+버튼을 누를 시 안녕 이란 말이 나오기 위해선 <button onclick="hey()"> 와 같이 onclick을 넣어준다.
+
+Javascript
+변수 선언은 let으로 한다.
+ex) let A = 1
+
+만약 자료형이 문자와 숫자인 두 변수를 더하면 숫자는 자료형이 문자형으로 바뀌어서 옆에 붙게 된다.
+ex) 
+let first = 'Bob'
+let last = 'Lee'
+
+first+last // 'BobLee'
+
+first+' '+last // 'Bob Lee'
+
+리스트의 선언은 let aList = [] 와 같이 함
+리스트의 중복을 써야 할 경우 딕셔너리를 이용함. 선언은 let aDict = {} 와 같이 함
+리스트와 딕셔너리의 조합
+names = [{'name':'bob','age':20},{'name':'carry','age':38}]
+names[0]['name'] 을 칠 경우 나오는 것은 "bob"
