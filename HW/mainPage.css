@@ -1,0 +1,36 @@
+* {
+    font-family: 'Noto Sans KR', cursive;
+}
+
+.mainPage 
+    {
+        color: white;
+        text-align: center;
+        background-image: url('http://www.sisanews.kr/news/photo/201507/11675_9180_5822.jpg');
+        background-size: cover;
+        background-position: center;
+        width: 800px;
+        height: 500px;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+
+
+.wrap
+    {
+        width: 900px;
+        margin: 0 auto;
+    }
+
+#table
+    {
+        margin: 0 auto 0 auto;
+        width : 700px
+    }
+
+
+
+
+
+
+

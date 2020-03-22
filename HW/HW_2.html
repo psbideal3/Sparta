@@ -1,0 +1,145 @@
+<!doctype html>
+
+<head>
+    <!-- Title -->
+    <title>홈페이지 메인</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="mainPage.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <script>
+        function clickFunction() {
+            let name = $('#inputName');
+            let count = $('#inputGroupSelect01');
+            let adress = $('#inputAdress');
+            let orderNumber = $('#inputNumber')
+
+            function checkPhone(num) {
+                var requiredForm = /(010)[-]([0-9]{3,4})[-]([0-9]{4})$/;
+                return requiredForm.test(num);
+            }
+
+            if (name.val() == "") {
+                alert("이름을 입력해주세요");
+                name.focus();
+            }
+            else if (count.val() == "선택") {
+                alert("수량을 입력해주세요")
+                count.focus();
+            }
+            else if (adress.val() == "") {
+                alert("주소를 입력해주세요")
+                adress.focus();
+            }
+            else if (orderNumber.val() == "") {
+                alert('전화번호를 입력해주세요!')
+                orderNumber.focus()
+            }
+            else if (!checkPhone(orderNumber.val())) {
+                alert('010-XXX(XXXX)-XXXX 형식으로 입력해 주세요');
+                orderNumber.focus()
+            }
+            else {
+                var info = "<tr><td>" + name.val() + "</td><td>" + count.val() + "</td><td>" + adress.val() + "</td><td>" + orderNumber.val() + "</td></tr>"
+                $("table tbody").append(info)
+                alert('주문이 정상적으로 완료되었습니다.');
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div>
+            <div class="mainPage">
+            </div>
+            <h2>고등어 <span style="font-size:18px;">가격 : 19,800원 / 10팩</span></h1>
+                <h5>일반 고등어와 달리 살이 통통하고 쫄깃해 오랫동안 사랑받아온 뼈없는 추동 고등어살입니다. 위생적으로 세척한 상태이므로 씻지 말고 바로 구워 드실 수 있습니다.<h4>
+                        <hr>
+                        </hr>
+                        <h2>주문하기</h2>
+
+
+        </div>
+
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">성함</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">주문자 성함</div>
+                </div>
+                <input type="text" class="form-control" id="inputName" placeholder="성함">
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>선택</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="3">4</option>
+                    <option value="3">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">주소</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">주소</div>
+                </div>
+                <input type="text" class="form-control" id="inputAdress" placeholder="주소">
+            </div>
+        </div>
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">성함</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">전화번호</div>
+                </div>
+                <input type="text" class="form-control" id="inputNumber" placeholder="전화번호">
+            </div>
+        </div>
+
+    </div>
+    <div class="wrap" style="width: 5rem">
+        <button onclick="clickFunction()" type="button" class="btn btn-primary">주문하기</button>
+    </div>
+
+    <hr>
+    </hr>
+    <div>
+        <table id="table" style = "text-align : center">
+            <tr>
+                <th>성함</th>
+                <th>수량</th>
+                <th>주소</th>
+                <th>번호</th>
+            </tr>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>
