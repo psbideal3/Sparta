@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+    .mainImage
+    {
+        color: white;
+        background-image: url('https://ww.namu.la/s/3f9849c1cc3f20e6319e09a57c0199d7c3e935a92918332b167e8ea05a52c986e0ddd9de092ea20cb101c6c282d32a4723b64630f848251963de03c62bfefce5a0f7bbecb9dc35879a716e066b729d942cf465a560155d6ca5b0aee7eb524ccecfc3c623d07fc72f13f9b68db6436919');
+        background-size: cover;
+        background-position: center;
+        width: 397px;
+        height: 223px;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+
+    .wrap
+    {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    </style>
+
+    <script>
+        function search()
+        {
+            let championName = $('#champion').val()
+        }
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="mainImage">
+        </div>
+        <div>
+            <input id="champion" type="text" /> <button onclick="search()">검색</button>
+        </div>
+        <div class="perk-page__item perk-page__item--mark">
+            <img src="https://opgg-static.akamaized.net/images/lol/perkStyle/8100.png?image=q_auto&v=1586932751" class="perk-page__image tip tpd-delegation-uid-1" title="">
+        </div>
+    </div>
+</body>
+</html>
