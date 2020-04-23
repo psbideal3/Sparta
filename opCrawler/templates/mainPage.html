@@ -1,44 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <title>BJ.GG</title>
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
     <style>
-    .mainImage
-    {
-        color: white;
-        background-image: url('https://ww.namu.la/s/3f9849c1cc3f20e6319e09a57c0199d7c3e935a92918332b167e8ea05a52c986e0ddd9de092ea20cb101c6c282d32a4723b64630f848251963de03c62bfefce5a0f7bbecb9dc35879a716e066b729d942cf465a560155d6ca5b0aee7eb524ccecfc3c623d07fc72f13f9b68db6436919');
-        background-size: cover;
-        background-position: center;
-        width: 397px;
-        height: 223px;
-        border-radius: 10px;
-        margin: 0 auto;
-    }
+        .mainImage {
+            color: #ffffff;
+            background-image: url('https://ww.namu.la/s/3f9849c1cc3f20e6319e09a57c0199d7c3e935a92918332b167e8ea05a52c986e0ddd9de092ea20cb101c6c282d32a4723b64630f848251963de03c62bfefce5a0f7bbecb9dc35879a716e066b729d942cf465a560155d6ca5b0aee7eb524ccecfc3c623d07fc72f13f9b68db6436919');
+            background-size: cover;
+            background-position: center;
+            width: 397px;
+            height: 223px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
 
-    .wrap
-    {
-        text-align: center;
-        margin: 0 auto;
-    }
-
+        .wrap {
+            text-align: center;
+            margin: 0 auto;
+        }
     </style>
 
     <script>
-        function search() {
+        function searchChampion() {
             let championName = $('#champion').val()
-
+            window.location.href = "/masterInfo?champName=" + championName
         }
     </script>
 </head>
+
 <body>
     <div class="wrap">
         <div class="mainImage">
         </div>
         <div>
-            <input id="champion" type="text" /> <button onclick="search()">검색</button>
+            <input id="champion" type="text" /> <button onclick="searchChampion()">검색</button>
         </div>
     </div>
 </body>
+
 </html>

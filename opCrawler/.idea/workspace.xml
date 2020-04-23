@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd12d4da-08f2-4045-8fa4-1c4b37889ad7" name="Default Changelist" comment="" />
+    <list default="true" id="fd12d4da-08f2-4045-8fa4-1c4b37889ad7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/opCrawler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/opCrawler.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/masterInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/masterUrl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rss.py" beforeDir="false" afterPath="$PROJECT_DIR$/rss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainPage.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +24,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1aZJiPUGFlMeV5sRTxDGP5fV3AI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,6 +37,8 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -54,7 +69,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="masterInfo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="masterUrl (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="opCrawler" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,7 +81,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/masterInfo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/masterUrl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="masterUrl" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="opCrawler" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\82108\Desktop\Sparta\opCrawler\masterUrl.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -120,8 +156,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.rss" />
+        <item itemvalue="Python.masterUrl (1)" />
+        <item itemvalue="Python.masterUrl" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.masterInfo" />
         <item itemvalue="Python.serverUse" />
       </list>
     </recent_temporary>
@@ -144,30 +181,30 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="482" y="366" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1587079688809" />
-    <state x="502" y="319" key="FileChooserDialogImpl" timestamp="1587094983641">
+    <state x="972" y="309" key="FileChooserDialogImpl" timestamp="1587283765079">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="502" y="319" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1587094983641" />
-    <state width="1899" height="266" key="GridCell.Tab.0.bottom" timestamp="1587129950698">
+    <state x="972" y="309" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1587283765079" />
+    <state width="936" height="295" key="GridCell.Tab.0.bottom" timestamp="1587287421191">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587129950698" />
-    <state width="1899" height="266" key="GridCell.Tab.0.center" timestamp="1587129950698">
+    <state width="936" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587287421191" />
+    <state width="936" height="295" key="GridCell.Tab.0.center" timestamp="1587287421191">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587129950698" />
-    <state width="1899" height="266" key="GridCell.Tab.0.left" timestamp="1587129950698">
+    <state width="936" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587287421191" />
+    <state width="936" height="295" key="GridCell.Tab.0.left" timestamp="1587287421190">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587129950698" />
-    <state width="1899" height="266" key="GridCell.Tab.0.right" timestamp="1587129950698">
+    <state width="936" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587287421190" />
+    <state width="936" height="295" key="GridCell.Tab.0.right" timestamp="1587287421191">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587129950698" />
-    <state x="461" y="182" key="SettingsEditor" timestamp="1586937424105">
+    <state width="936" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587287421191" />
+    <state x="461" y="182" key="SettingsEditor" timestamp="1587273752639">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="461" y="182" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1586937424105" />
+    <state x="461" y="182" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1587273752639" />
     <state x="652" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1587076442442">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

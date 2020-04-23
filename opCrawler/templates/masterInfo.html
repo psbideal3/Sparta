@@ -1,0 +1,87 @@
+<head>
+    <title>챔피언 정보</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .mainImage {
+            color: #ffffff;
+            background-image: url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 397px;
+            height: 223px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        .wrap {
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+            searchChampion();
+        });
+
+        function searchChampion() {
+            let championName = decodeURI(window.location.href.split("?")[1].split("=")[1])
+            $.ajax({
+                type: "GET",
+                url: "/searchMaster?champName=" + championName,
+                data: {},
+                success: function (response) {
+                    alert(response["showResult"])
+                    postMaster()
+                }
+            })
+
+        }
+
+        // function postMaster() {
+        //     //api에서 가져온 닉네임을 자동으로 올린다.
+        // }
+
+        // function openclose() {
+        //     bringRune()
+        //     if ($('#summonerRune' + 소환사이름).css('display') == 'block') {
+        //         $('#summonerRune' + 소환사이름).show();
+        //     } else {
+        //         $('#summonerRune' + 소환사이름).hide();
+        //     }
+        // }
+
+        // function bringRune() {
+        //     //가져온 룬특성을 넣는다.
+        // }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="mainImage">
+        </div>
+        <div class="list-group">
+            <button type="button" onclick="openclose()" class="list-group-item list-group-item-action">소환사 이름</button>
+            <div id="summonerRune" + 소환사이름>
+            </div>
+        </div>
+    </div>
+</body>
