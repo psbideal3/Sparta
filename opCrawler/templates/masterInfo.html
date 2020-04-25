@@ -16,16 +16,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
     <style>
         .mainImage {
-            color: #ffffff;
-            background-image: url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg');
+            background-image: url('https://www.leagueoflegends.co.kr/upload/cms/201503/env_vista1.jpg');
             background-size: cover;
             background-position: center;
-            width: 397px;
-            height: 223px;
-            border-radius: 10px;
+            background-position: no-repeat;
+            width: 100%;
+            height: 100%;
+        }
+
+        #reSize {
+            width: 600px;
             margin: 0 auto;
         }
 
@@ -33,11 +35,16 @@
             text-align: center;
             margin: 0 auto;
         }
+
+        .blank {
+            height: 20px;
+        }
     </style>
 
     <script>
 
         $(document).ready(function () {
+            $('#masterList').html('');
             searchChampion();
         });
 
@@ -48,40 +55,49 @@
                 url: "/searchMaster?champName=" + championName,
                 data: {},
                 success: function (response) {
-                    alert(response["showResult"])
-                    postMaster()
+                    masterName = response["showResult"]
+                    masterTier = response["showTier"]
+                    appendMaster()
                 }
             })
 
         }
 
-        // function postMaster() {
-        //     //api에서 가져온 닉네임을 자동으로 올린다.
-        // }
+        function appendMaster() {
+            //api에서 가져온 닉네임을 자동으로 올린다.
+            for (let i = 0; i < masterName.length; i++) {
+                let tempHtml = '<button class="list-group-item list-group-item-action" id=' + i + ' type="button" onclick="window.location.href = "https://www.op.gg/summoner/userName=' + masterName[i] + ';">' + (i+1) + ".   " + masterName[i] + '<span> ' + "[" + masterTier[i] + "]" + '</span></button>'
+                $('#masterList').append(tempHtml);
+            }
+        }
 
-        // function openclose() {
-        //     bringRune()
-        //     if ($('#summonerRune' + 소환사이름).css('display') == 'block') {
-        //         $('#summonerRune' + 소환사이름).show();
-        //     } else {
-        //         $('#summonerRune' + 소환사이름).hide();
-        //     }
-        // }
+        function bringRune(n) {
+            master = $('#' + n + '').text()
+            // $.ajax({
+            //     type: "GET",
+            //     url: "/getRune?masterRune=" + master,
+            //     data: {},
+            //     success: function (response) {
 
-        // function bringRune() {
-        //     //가져온 룬특성을 넣는다.
-        // }
+            //     }
+            // })
+            window.location.href('https://www.op.gg/summoner/userName=' + master)
+
+        }
     </script>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="mainImage">
-        </div>
-        <div class="list-group">
-            <button type="button" onclick="openclose()" class="list-group-item list-group-item-action">소환사 이름</button>
-            <div id="summonerRune" + 소환사이름>
-            </div>
+    <div class="blank">
+    </div>
+    <h1 class="wrap">장인 랭킹</h1>
+    <div class="blank">
+    </div>
+    <div id="resize">
+        <div class="list-group" id="masterList">
+            <button class="list-group-item list-group-item-action" id="0" type="button" onclick="bringRune()">소환사
+                이름</button>
         </div>
     </div>
+
 </body>

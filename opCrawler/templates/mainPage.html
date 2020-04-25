@@ -22,15 +22,33 @@
         crossorigin="anonymous"></script>
 
     <style>
+
+
         .mainImage {
-            color: #ffffff;
-            background-image: url('https://ww.namu.la/s/3f9849c1cc3f20e6319e09a57c0199d7c3e935a92918332b167e8ea05a52c986e0ddd9de092ea20cb101c6c282d32a4723b64630f848251963de03c62bfefce5a0f7bbecb9dc35879a716e066b729d942cf465a560155d6ca5b0aee7eb524ccecfc3c623d07fc72f13f9b68db6436919');
+            background-image: url('https://ww.namu.la/s/3f9849c1cc3f20e6319e09a57c0199d7c3e935a92918332b167e8ea05a52c986e0ddd9de092ea20cb101c6c282d32a4723b64630f848251963de03c62bfefce5a0f7bbecb9dc35879a716e066b729d940d4a4e03e1f7839772218ad6772053418f7baef6543487422960ba9cae6dadbb');
             background-size: cover;
-            background-position: center;
             width: 397px;
             height: 223px;
             border-radius: 10px;
             margin: 0 auto;
+        }
+
+        .topBlank {
+            height: 30px
+        }
+
+        .blankRow {
+            height: 20px;
+        }
+
+        .resizeText {
+            color: #9b9b9b;
+            width: 400px;
+            height: 30px;
+        }
+
+        #btnSize {
+            height: 40px;
         }
 
         .wrap {
@@ -44,15 +62,21 @@
             let championName = $('#champion').val()
             window.location.href = "/masterInfo?champName=" + championName
         }
+
+
     </script>
 </head>
 
-<body>
+<body style="background-color:#5383e8;">
     <div class="wrap">
+        <div class="topBlank">
+        </div>
         <div class="mainImage">
         </div>
+        <div class="blankRow">
+        </div>
         <div>
-            <input id="champion" type="text" /> <button onclick="searchChampion()">검색</button>
+            <input id="champion" class="resizeText" type="text"/> <button type="button" class="btn btn-warning" id="btnSize" onclick="searchChampion()">챔피언 검색</button>
         </div>
     </div>
 </body>
