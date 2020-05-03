@@ -17,6 +17,12 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <style>
+        .championHeader {
+            background-color:#292e38;
+            width: 100%;
+            height: 240px
+        }
+
         .mainImage {
             background-image: url('https://www.leagueoflegends.co.kr/upload/cms/201503/env_vista1.jpg');
             background-size: cover;
@@ -25,9 +31,13 @@
             width: 100%;
             height: 100%;
         }
+        
+        .postRune {
+            background-image: url('');
+        }
 
         #reSize {
-            width: 600px;
+            width: 1200px;
             margin: 0 auto;
         }
 
@@ -66,37 +76,301 @@
         function appendMaster() {
             //api에서 가져온 닉네임을 자동으로 올린다.
             for (let i = 0; i < masterName.length; i++) {
-                let tempHtml = '<button class="list-group-item list-group-item-action" id=' + i + ' type="button" onclick="window.location.href = "https://www.op.gg/summoner/userName=' + masterName[i] + ';">' + (i+1) + ".   " + masterName[i] + '<span> ' + "[" + masterTier[i] + "]" + '</span></button>'
+                let tempHtml = '<button class="list-group-item list-group-item-action" id=' + i + ' type="button" onclick="bringRune(' + i + ')">' + (i+1) + ". " + masterName[i] + '<span> ' + "[" + masterTier[i] + "]" + '</span></button>'
                 $('#masterList').append(tempHtml);
             }
         }
 
         function bringRune(n) {
-            master = $('#' + n + '').text()
-            // $.ajax({
-            //     type: "GET",
-            //     url: "/getRune?masterRune=" + master,
-            //     data: {},
-            //     success: function (response) {
-
-            //     }
-            // })
-            window.location.href('https://www.op.gg/summoner/userName=' + master)
-
+            master = $('#' + n + '').text().split(".")[1].split("[")[0]
+            $.ajax({
+                type: "GET",
+                url: "/getRune?masterRune=" + master,
+                data: {},
+                success: function (response) {
+                    runes = response["showRune"]
+                    appendRune(n)
+                }
+            })
         }
+
+        function appendRune(n) {
+            alert(runes)
+            for(i=0; i<6; i++)
+            {
+                if(runes[i].indexOf("감전") !=-1) {
+                    let imgHtml = '<img src="https://w.namu.la/s/8f8c2bdf9e11c41d63924d236b55c7e51e3424fba7a22f7bb2e73279f50d68bcb2d28790cff24fed2e6f2b71fd8473a01b41b4ae5cd478d032db844baa74e2dda2891c201330708b6c80c078cec86cfcd4adeec2738b5207e8a86a41c00ad799" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("포식자") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/e672ab95d044cd3b50dbffc3841b8d802d34bbee3cb6b0d67e1de90164e17fd479899a5dd77ff27941429d67ecc81fa4c6eacffae1c4ece96e3603167f82b343f750651fb73f953ffcdf71fe3ea5c7b4af00dd223b7a6d4515d69c97a2549cc6" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("어둠의 수확") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/634b1a0d73d6845b8a34fb629cd46ff2b4b3d27ae7b36d8645203b011c9517cc5ba4e0ed515b41e3b7d5707c7ad860766678ea09e0e076d6735482a131ef12440c6d45f7696530312dbf21539ceb09ed6dbbf51da7d460409b9bf24d44cf2a65" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("칼날비") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/f9913b876f44e37a450f1265b31bdab541bf77a3c85e6858a1b237eb77921aa38c311385cedbf95c0c051d24438e9a80fbe7e2ecba72db9b20850521e23a01398dfd592c08a84654c7a255c6a0a361acadb772b5392506215b87d704d57980d6" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("비열한 한 방") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/651f7a793b69dbca986e15862d1e52c97ba22c806496d1bf17fabd59f29cb54a33d3075b0e3787eb1a914bc75fe7215ebd7b19bfc24fc885a0d4aab3427dbd7bc3b9e08d409c50933dc8acb61a3024b9791ee4afa7fbd5f6d8dc0fa25679b6f3" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("피의 맛") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/e93be38c10ab4cdb37f5c7c952c80cbda6abdefefb6629fecfbfcc51212eeeb4778bde9cb9eba8894bcd780c2ee0c368dcc542ea7296984f66a596d71ebfd1a0f1f2c033c031ab29a9f4d3f0dcf2541424f3cf34aab5b7fc2566003d8b947775" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("돌발 일격") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/f474f6948b90c7c911c36e0b7efaf2ac2acada47947ae52527bed6b92646b9896ed4ccb4a04b71e6d355683489af7c8fd573e2c03776b75ede72e912c38c13b0c41f76925476f55d5ef854ab5d61ce7fa9eda7514a0c0a898796eee3d50f8004" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("좀비 와드") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/105b611f57b398787bd53145a3b7d4e87fe426a69f856c8297b824ce2cfce9b3b840b902d2be84428063ebb047fbafdcdcdf2f682516e6c310b7f57115115cee0f229692be61d31227f207bf4d7d0901fe94508077215245d307a70eb65d0468" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("유령 포로") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/e36885a1b9a020d372562bfad4d50f7d909e50d0f7d8568401e0724aae30aedfc8c3f25c0346576284a7a53b804a6c3433dc542cc13becb018bb5e73813406f24f1d5ba137db29eb9b75aef7bfb82ae77d2ddf909fceb1f01915db37c66ab362" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("시야 수집") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/d278237febc78d8aa6429dc69c44b87dfb1de3326506f96feb19e0a0c96adf8363718823c7418d629057ce6bfc194cc1de34c1e130cd2bc79edc0675171fab4045a77774fe8c2091cfa7b5ab8f7ddae639058798c84907afa804fb49a983107d" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("굶주린 사냥꾼") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/73b0f059a522689da5a91df6d48e1dad949bfee0b265ec7fe685dfd8803e226350a5769dc1282582bbb5619eccb5a39f4c0f265b2f4598b9f964f85677bc17ab56fec2fd4886406402b2ce76da5b5bc4cd2c85306682b6b36d81dd04959be217" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("영리한 사냥꾼") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/10bdeb8b7fe4a426d13d373d6ea7e348f96f9adf1fd138e320bcc384eb2ea082f358136d56e741c0268101a862c0f23c01402101c91dfee0e8cce2eb3fbaf3e893d6a6aef030468c48ebfde5db75e8535723bc8bbcd16448a3f179e41410e05d" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("끈질긴 사냥꾼") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/92e0eca17c8d2c97b4e68a34dbbcf3991e2ac149cc5166e9fc7b9bbfe9fb5f4a1634418a60c4f3796970583d35b0c703dfe859f8aad7520c7c0854723a416c4a8a195d76a4e75473ad219ba56b8112ac59def6afb605254a4c81ba4992947349" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("궁극의 사냥꾼") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/8b9be25164d0c71c05bec0b2cc3d9b5da3d653aafc8816ada1ec9f3b1daaf9908d6f46928697a3371cda70e49a06a03f0682add81d48f6ef3a737ed0e79da52f8952f2bc8a99a54933532e47962d462f19267ca7602e8671dcbd6fa1e565702f" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("집중 공격") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/e08502dd6b90c662971a418334fe7fbf1ab11cc01446965f7669d55c0ef9fb70e39a8ad5a98cf4707c48e7d0bdfaffee093102c718b5a4cebeb8bb62719b2e796f67b5c7dddb1acf95623e9de5849e60b41601c637410e40d85e49661b0a0c44" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("치명적 속도") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/541a182999bd0cfcf0cf679de4a1771a3b6c21073af1b7afa527fa4b4996627b05c063be2cef383613d51a7d52c2b8ec51c0d4135b022f64672c8f467eda81b7a5da4583d86b3fb6dcbfca6b4d1e3df4a8dbb6ee52b81fce7b17bdc320e4a422" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("기민한 발놀림") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/48c74f159a33a857b9c788b253a23d38e5bc676134bf4ad7a856a3c6ae9cca01a85f4729b544d50cd7af776d910bf31d93ae5fac6a74225b553a4154bf4522729814b1a9c5e21bf1e42868ca138c750e3d947bc6834e191fcc11bcc3d7a26564" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("정복자") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/7d15d83e176aea3884e20fbf435fc81c11200dc3b59c79ec491fb67ab407a562db27e5ce65cd0bc3aee098b2558d2da0bced6e5bc6c8ad7c25d3ff48f7c154ac66b06ee035cc85580678c0549b96f001bff4ad0e167b0885dce391e506d63f65" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("과다치유") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/33152785bc539705c9ed4aaf9194a1ed1f84d98fdfafc86edf0ca7f53eb92f4a9eeb7999645af153fb762823947b5a428de64872e659af6cf837f29651fd9152ace0b1838e37933ca45d4bb68303bc13d0d8509bfdfa012da7bacbffdc32898b" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("승전보") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/b13eda92b6b549ba40579a15803110827fe1cbeb86f0d85bf34d5d47dd23d079972c0b46c4b4167e272cc487b290b3abac7ab7f7e6dec2499d5d4ee89e9b4aa66ff38b3fc34cea7f309e54f4ee5b6be2afe561e46e437adc815c31326f9dcab1" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("침착") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/31a00283942dacc6cd36596be9467d39cb3cb50800e5f6dbe062e1cc152096bbf540774d8b0d1b356a958d0b779a412d8021790f9ab66168aba5a095f53856496fb54ede59859710bcfd55c06b282c41c25b6a0031b0de31acf8f2a150668be2" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("민첩함") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/8755c29badafb0d7eb8e188bcbf2798963bb7f873828bde6f181f5fc0180e56c8f68295cc53b2f5a9a8ed4bdd69c224f77acc23fa0e45dccb81db6f76d3b9f21d77d7e1801ff86c9289d3154b55ba9ebe2206bb4200a6f28f03a021ea50ab296" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("강인함") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/c01885b1a6a1eb0a56bd0f79ca4c4d982f96ac500115adb3dd05cd27c4a8c25852cb206f23721d287be92c013673f0bb68fd003069e2abd13ec356d08684f5fac1f4c408590880d0bb62b2c4cb3819b61cc0fc964d72e6cf202f686cb6449808" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("핏빛 길") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/08d7d029cbc948570fff9b9c2a3bfa118f0c866ef10a916618100e90006a63f40391774a68a9488d8aa74115d6568103b4d2726146e7880b8f98fdd8b4c4c9e92cc0bfd3247247b6f92d5ac2fd2429eb05bddbee6316fbd89c80e50bead54364" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("최후의 일격") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/f5d81d26a4da3326d3f6ae2390f1b6aecaadca8373985ad4b9772c6531cb0674bed97b74b105c4107ce0a93f3a6b11e886a964c9c75ec51a92cc6791da0d4de882f436b1fde70b506ee3d9f9bc15fb5e5b6b90630346f0b7ddca9282bf7a45c8" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("체력차 극복") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/71e94785bfd1148364f00ea150d6833265f496db18729d45085890d25e779c47d32c4d19c8ce56e7393d56dee343e9848f9572febfe5013b869d711ca3a7905dbdb3f49c297f7cf297428a5d10e71de6563d864cf5497a75994d173c110935ec" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("최후의 저항") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/77715ead7f3c2aea1b4dba6f8595e3245c6ab44493123c78c3eb579cb40c02e8430ec1eaa5a0cd92f4b26d800be515b65ed26a7fefdc10973bbf2138371e2fc32c65cd9f15f7703eca39e887499c62f61bc91bf332ac58a2aefb91916cbf5a89" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("콩콩이 소환") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/6baac47711293388f2bbc8cc65d251edabc3527f45b0e5059fb162c65c0764f6bf2f3d729cc337459185570179076b47f1a272801a0aa7fff017b10da0c91b0a9a120361efa8b432c25811d07291b6a28f9b364cb0011b4283fd7500d8d81cc2" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("신비로운 유성") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/082c5ef2f139974c715b1fc1087bbfac1119d28f4bff2041ad91ca28eacfd35515a4852499b509cce25eb7f5048baddb8c099285e5fbcf8192166fa4bc6931d7ce65de4f22e199156f7789f156458692640c2a7932cf39fbbae2118d3931520f" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("난입") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/97521bf8e88cc5f44f5628c9d29bf339961769d29b77f7399ae83539a7d3de6eef77f81fecfad8bfebbc37a677accf7986a43df6c78333c6be5b1db50cccf1f7e66a16017a8f82b5314228140d811c196930bb5a0ae7f73fb8f4839598b9cad4" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("무효화 구체") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/12683cd3063bd370cb861f62fc3d9ba8671df526c9bdc1d0329192532089ced2f9f716a310b86d56f5335956b2202a8618ecb1d3114ef25c1af8ac1ab1167b2d248eecf3440ae2a99df34cff2545452ecac216dc4345222bf1871f6ccd06ee4c" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("마나순환 팔찌") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/9d3bf0e76e0cebbe3a36ce440faa91ab1c51088eb91c178f25d1fa2588a3e880403f2e5eb6f22f22f3c06f7538788867ac7601f45e23115da3e0ccbbe8cb9a5de98b47a11ac5ba87457a594e12cd52a2325d69b903e557cada0275f985ed3f50" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("빛의 망토") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/5db9a3550499316a8137563ea1a4b8ca881c979cbe0b698b7927504ab3ccd50a2bed6e1d56de5e1924b550decfb38ad6d095695115bbc5cf7a2d6370d8e6ad3cdf45f7a86b64c738b640b46a632d57c0c73e8753ed8b2debafdb18accf8035d0" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("깨달음") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/ecbe97d893fe2931bdbec2d3f1d6d6a13cc16bfa97c6b935305b7b717d0fcd19abe9a3a48ce15c029a510d0de95540587e6674bffcba4e566e2df2fa4a9369d71467d6127d99f346f48638bc017f1908220fc0d92974cc4f4b655e34a7e354a0" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("기민함") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/a57248d69b3b67e03cb689f9b1bbac60f59a511a6f5f04a431fe915ad932fa5ba02d65e7585d75320143e2410a1b367be697dfe6200b131b5ed0191c473700b7e94b52deb555d1af2eb79e7f63e2096155d104ae5ae391485fcd5e299c60772d" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("절대 집중") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/8182c98a7474fdbd4eb5982d77f670ab31478937a86ed244bfd66fd4821d5170697e4c977c38506ee9c710bf7d8be853cfb93a696a893df330d5a1bface9c5a1b391ed22b1faa111e3dd24081efcfd71807baa77fa94063bcd7f66bdccf3eb5d" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("주문 작열") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/96f404b66c87ec0d06832b4d89328cb1e481abb907db522d9f00f65ad3724f97d7f1a2c91f6bd8c962fc569ac4d3a3f1c2ef40f0effe3fb7e209d59913bf56fc4f8aed02fbcd4737c6ec02ab4807e5d5d09c5b4fcf93b468018b58d3a096764f" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("물 위를 걷는 자") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/4ba4e1762c7dcfe9bcb55dcdedb098c0f6df403ec4f035198483b720c71d303ff3cf019698a768dd59249d0ee4afc8b983de5dcbf1e54733ad42a72a9056fce108660cd87174576a061de4d4b812a208e2c9c567fa23fdd48faea44b54492142" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("폭풍의 결집") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/5f98653378ebaa103d0298da095b920ed8e4eb264bf7ebf21b86e09a0bdc9b626b47fe91e698d70db42ad86f86e4434612261717017acea87502c34ea5219be4cb63f719c02be7892beb785147854c715789c46b33a56a675d95658d5d0001ad" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("착취의 손아귀") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/e5192766397fd7d2cc767af2112e596e1810e80caa3f5ff8abb00448a2847d6958b8107039998273ddf5bca4c9c675e06892d89ea5b1281ca4be6944a88722bddbdc74b6e87fe4315fd0017dfacf6e29c61aba94a6e5b89aee0c610618582e38" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("여진") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/51e6396b4351bfbd2747c1df26ae6913e71c5570d42afd6515fbc4958bc10294c5f4e96f5b87ac37a2311e8ef01940ecc558fa7f0c4a424990de63984d23c857f50b9a7001979ac488b6943392a713315242f605aea3ff8e5149faa09a1c9ea9" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("수호자") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/2f9ea37b7ae85f8c4183c2f844add32c9394079e9e5f0f8e651e1b529ec672253c6c32341ee9348ed38146bcfd1326f8162f76893746c725c8c24cdbd16c9be8a1e2a04c942759f38c61139e096421321c389648593e8bcfba74c2cb8c0f3064" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("철거") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/15163cb41cca7318164740a4f3814884c5e4df70ffbc523cecdbb833c8cdeb1e6e7a69dcd1155731936635cbc8acddd5d2838afe3cb3c7e3b1bebe623ab1de159cbcf4adef7d24355e1a47008aec2fb570820e87b4f472839a118d1ed69da1d2" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("생명의 샘") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/042c8c0fa866b675d61bb68b73c4f8d0cef0e6cecd3ac3db3dd00c3b17d7f20827d100ed556376e76e4a86a2c6b9306bf16da76ea60616b2ccd7a732aec7cf077e4b7c75dd1e2f31ee4cd30371c3d06f3f3c474a3f4b566d53e1228292cfd204" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("보호막 강타") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/fc788b04ced43224d7e91c5d368ccc15a9f247b0a15b6c3ded5a03216ecb662c4b3f697654931a8d7310274817e6375746a995311bb2c84a3dd917cea84c34192f263d6305e4dfa419139e897c475addeb374489c4b5eff6ae62c3831b68bc61" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("사전 준비") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/5814fda1e72b04680cacc9907e776511bda512f18c4a5f3fdd1c3f600b063c5307181c29387e3be7e9dd5c49d7157dd8170e97f508485724723c220a5820f1be7319d624a9dcdfabe7700512550ba087eb501c932f09f7228e18419109808913" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("재생의 바람") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/c7d45ed9849e4d78ac9518b2aed6564c51a59a9c24048a0cfec094961e1d42556ac871e110cf41b9f7eef74d936e475922d7efecf099c2c72cd5f9dab1bd7c53604605b131486091660fb31388f5a7eef576266bd4dac3c69cf8883853ed3cf0" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("뼈 방패") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/b40e18c89e0913ad3cae2a470904ea1198d0791db1488e1d776d96f6efc0de71c0fb8cfcf5cb2fe7b1899a559b426da4569aa979364108b016bbfeb5e988961ce0ef2541a8ee8f5f0fd4c46cf71201ca0904faa6886c2f8e48c8ffc6ccac787c" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("과잉성장") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/cbbc70b6ae11cba3871421e49575591efa90aa9e25bb589c220188e24578422236dd6f7ec34f7c644512bd1b67cc735e7a3ca78d0970b57f0682edeebfc9ac5e7f795ae4f247518e87776656721efbb4ecc21232f6a9f7b90831268c26b3162f" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("소생") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/84ab37ac05390179d4fa6673040d1446a462f9dd714a7d8b126042dd40f40be119027f106699d09facf3a92d1abcdf86c181e92fe2216e12fe065bcb6e8813d3908235958cc4ccd941e93d98ddff81a086f4b2983715e563613a084bed31d3e8" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("불굴의 의지") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/f42b01e707f765b042b6b3f1b3d3bc30ed1d6000d2e9e171a94ee73043e4a067c2950e6ec0e09bcfe21dcac2eee29581d84c711915ee2d91be3f04a330df3d25a4ac9ba8e3c954283f22339fd73f44636424868f4ba081fb5518e8aa649b0ccf" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("봉인 풀린 주문서") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/7885920e6725fd914ba1d7b3fd314ae37ce5720dd7bb5726a493ee2db4063e2568b032dd014446f83160fa88eac6b97b19ba614db22ea36ef8906aab8090a68474971244cd500029e81cb62d9f48184e1ac5bf38a46bd9659f6d2f881ba6d9ab" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("빙결 강화") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/8639eee67b8638fd6582798d61a4f1465ed9f468bad3ac636704be3a652093536925823db4604ad88ada89dc6d61f271eec8cf45302b1c002dc9c016969fe73aea119e7887e39fb2978eaf847ed72e14fcf9f73bb4a0cca1ca9e303c8bad48c9" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("프로토타입: 만능의 돌") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/921747c3a1526269990a803a00753b144557a48565b85c512cd1d40d164a127e1b24ec182085c7ff514d206d1dfb2add3befa8aa2c59b39fb55957312c5e12df11d6b42ea94194c77d0f2a1053578af56b7566c66311bf21ee12d55d8c7d2b9d" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("마법공학 점멸기") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/ba6e1f589157c990b42d6edb07084bbfec0459e68687cedb9d80f3a3819babab5a6d35bdc33db59c01c32b32005dad26fd417c1614f7f9db8550c87dd5bcee18e168b9984bfcf1d7b79816cd61d5cbff9b66b4d39fef739c9030a42f37ac210b" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("마법의 신발") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/4ea5870ffc78a20746520574fdc5dc91d883645ef8776a414710c30cf0a2107926e0d46eef1e9b22fc2691e503017de7b889bcb3c804d925ee5711adcccd89eb995fb528ed4dbdc4b42874528195b618b6180018a468dabea04b7d20ea031081" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("완벽한 타이밍") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/f42ab0c7531e3e77f93d663c2081e84c68c6521e4fb1e24ab80fa90c1f10998b6d6f4a576ed486d5ae24d41763fb4e4f0d2fb911db30a97aa44ac6bf41ded2026136d15ce60e392ea35a758ac078276a656703785b9184365a97ea39e9a9587a" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("외상") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/9602aa04e9d4dcf64c64af9a2ffe26b0b198e499fd0f9eb3e3115926f7cce4b6befbbff1d4f085f2eaf7f0c3457ac2c408d8e447733a5c6649eb78899703083e4cd63439164fb11cba5f8cbaf326d38cbe7f3f07b60f6ccc7f4744a1c144da70" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("미니언 해체분석기") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/1ed1ab5f16d2715d017b145817aa8451eaad1987c7dff22cfe719ab1975fa72477ba8900a6e55fc3145543ae144c646189d12902cd343859b2f2b1a301f9b522551f40f626ff8dc9234f8cf1566bb105a019cb7fe9e925cc0210434aae39e084" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("비스킷 배달") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/b0604fb00d31231461888cae0eb786e0386ffde341251bdd3aa503bb1bf7c3a324110af8b448fcb024c0615b1261ba55455d39efa1e3a05bfb92591dfcfbc72011bc467e11b833f7b9d9637b4771f91ea76ec744436b1a66b08d0d99632bcb52" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("우주적 통찰력") !=-1){
+                    let imgHtml = '<img src="https://ww.namu.la/s/85a0c19a2520cb84093919444cbb671310571e3bbe818ef9a6818f10d9f1a3729067aca7c56a8ed0803e00410a15f2628db1b8c57f82fbe79867be6d65e571eaf1de05e37d0553cb795225662ba16673fc656c415337bd30d81f8e859df0f0c4" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else if(runes[i].indexOf("쾌속 접근") !=-1){
+                    let imgHtml = '<img src="https://w.namu.la/s/aa0a3b95dad6aa3a8dfc4ce097708cb8aa6fff2957daedc129ce2a99c8e7a8526e081ad567c8846bb157efa26c935c105d5e069fd71e1a733e79f106f9015def01ca79c4e1c38dacbf2a22ea8ba8ed48880227fcb4c1bc1aa5bf8fac62824730" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+                else{
+                    let imgHtml = '<img src="https://w.namu.la/s/3f9ec9bef97a1ae714756483e26456ec0f96274d16fac995ec679a6789c6440d33f317b8d0357a5f07dfb010ce46af4f99a04b1618ef3020f59943e52a8aa34b1d9862c1b34585ecd0ea5fd15100514b1c8221a68a8ee7211d92ed3a9e745b82" width="108px" height="108px">'
+                    $('#'+ n +'').append(imgHtml);
+                }
+            }
+        }
+
+        function pictureRune(rune) {
+            let 
+        }
+        
     </script>
 </head>
 
 <body>
-    <div class="blank">
+    <div class="championHeader" style="background-color:#292e38;">
+        <h1></h1>
     </div>
-    <h1 class="wrap">장인 랭킹</h1>
+    <h2 class="장인 랭킹"></h2>
     <div class="blank">
     </div>
     <div id="resize">
         <div class="list-group" id="masterList">
-            <button class="list-group-item list-group-item-action" id="0" type="button" onclick="bringRune()">소환사
-                이름</button>
+            <button class="list-group-item list-group-item-action" id="0" type="button" onclick="bringRune()">소환사 이름</button>
+            <div class="postRune"></div>
         </div>
     </div>
 

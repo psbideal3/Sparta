@@ -32,18 +32,27 @@ def getRune():
     return jsonify({'result': 'success', 'showRune': rune})
 
 def scrapRune(getMaster):
+    runes = []
     driver = webdriver.Chrome('C:\chromedriver_32\chromedriver')
     urlChampion = 'https://www.op.gg/summoner/userName=' + getMaster
     driver.get(urlChampion)
     time.sleep(1)
     req = driver.page_source
-    soup = BeautifulSoup(req, 'html.parser')
+
+    findDetail = driver.find_element_by_id("right_match")
+    findDetail.click()
+    time.sleep(2)
+    findRune = driver.find_element_by_id("right_match_build")
+    findRune.click()
+    time.sleep(2)
 
 
-
-
+    activeRune = driver.find_elements_by_css_selector("#SummonerLayoutContent > div.summonerLayout-summary > div.RealContent > div > div.Content > div.GameItemList > div.GameItemWrap > div > div.GameDetail > div > div.MatchDetailContent > div.MatchDetailContent-builds > div > div.RuneBuild > div.Content > div.perk-page-wrap > div.perk-page > div.perk-page__row > div.perk-page__item--active > div > img")
+    for r in range(6):
+        Rune = activeRune[r].get_attribute("alt")
+        runes.append(Rune)
     driver.close()
-    return
+    return runes
 
 @app.route('/searchMaster')
 def search():
